@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navbutton {
+  @apply h-full w-full bg-stone-100 rounded-lg hover:shadow-lg transition-shadow;
+}
+
+#root {
+  @apply container mx-auto;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+.button-primary {
+  @apply rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}

@@ -4,11 +4,19 @@ export interface INavbarProps {}
 
 const Navbar: React.FC<INavbarProps> = (props) => {
   return (
-    <nav>
-      <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/people"}>People</NavLink>
-      <NavLink to={"/rooms"}>Rooms</NavLink>
-      <NavLink to={"/profile"}>My Profile</NavLink>
+    <nav className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-10 w-full text-xl gap-2'>
+      <NavLink className='navbutton' to={"/"}>
+        Home
+      </NavLink>
+      <NavLink className='navbutton' to={"/people"}>
+        People
+      </NavLink>
+      <NavLink className='navbutton' to={"/rooms"}>
+        Rooms
+      </NavLink>
+      <NavLink className='navbutton' to={"/profile"}>
+        My Profile
+      </NavLink>
     </nav>
   );
 };

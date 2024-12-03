@@ -1,18 +1,41 @@
+import { useEffect, useState } from "react";
+
 import Greetings from "../../Greetings";
 import Navbar from "../../components/layout/Navbar";
-import peopleList from "../../models/PersonDb";
+import { Person } from "../../models/Person";
 
 export interface IPeopleOverviewPageProps {}
 
-const PeopleOverviewPage: React.FC<IPeopleOverviewPageProps> = (props) => {
-  const fakePeopleDb = peopleList;
+const waitSeconds = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("3 seconds have passed");
+    }, 3000);
+  });
+};
+
+const PeopleOverviewPage: React.FC<IPeopleOverviewPageProps> = () => {
+  // get people data from api
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        "http://react-vid-app.vercel.app/api/people"
+      );
+      const data = await response.json();
+      await waitSeconds();
+      setPeople(data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <Navbar />
       <h1>Here is the People List</h1>
-      {fakePeopleDb.map((entry) => (
+      {people.map((entry: Person, index: number) => (
         <div>
-          <h1>{entry.id}</h1>
           <Greetings person={entry} />
           <hr />
         </div>

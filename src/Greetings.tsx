@@ -6,14 +6,16 @@ interface GreetingsProps {
 }
 
 function Greetings(props: GreetingsProps) {
-  const { id, name, age, position, heightInMiliMeters } = props.person;
+  const { id, name } = props.person;
 
   const detailHref = `/people/${id}`;
 
   return (
-    <div>
+    <div className='p-4 flex flex-col gap-2'>
       <h2>Greetings {name}</h2>
-      <NavLink to={detailHref}>Show Detail Page</NavLink>
+      <NavLink className='button-primary' to={detailHref}>
+        Details
+      </NavLink>
     </div>
   );
 }
