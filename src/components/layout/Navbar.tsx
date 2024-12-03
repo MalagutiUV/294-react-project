@@ -7,6 +7,7 @@ const Navbar: React.FC<INavbarProps> = (props) => {
     <nav>
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/people"}>People</NavLink>
+      <NavLink to={"/rooms"}>Rooms</NavLink>
       <NavLink to={"/profile"}>My Profile</NavLink>
     </nav>
   );

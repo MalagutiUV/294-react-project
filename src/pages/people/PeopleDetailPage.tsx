@@ -1,5 +1,5 @@
 import Navbar from "../../components/layout/Navbar";
-import { findPerson } from "../../PersonDb";
+import { findPerson } from "../../models/PersonDb";
 import { useParams } from "react-router";
 
 export interface IPeopleDetailPageProps {}
@@ -9,6 +9,7 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
 
   const { peopleId } = params;
 
+  // find person with id from url
   const person = findPerson(Number(peopleId));
 
   if (person === undefined) {

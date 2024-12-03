@@ -1,6 +1,6 @@
 import Greetings from "../../Greetings";
 import Navbar from "../../components/layout/Navbar";
-import peopleList from "../../PersonDb";
+import peopleList from "../../models/PersonDb";
 
 export interface IPeopleOverviewPageProps {}
 

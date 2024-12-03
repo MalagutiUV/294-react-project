@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { Person } from "./Person";
+import { Person } from "./models/Person";
 
 interface GreetingsProps {
   person: Person;
