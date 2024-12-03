@@ -15,6 +15,11 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
     <>
       <Navbar />
       <h1>People Detail Page for Person {person?.name}</h1>
+      <div>
+        <span>Age: {person?.age}</span>
+        <span>Position: {person?.position}</span>
+        <span>Height: {person?.heightInMiliMeters}</span>
+      </div>
     </>
   );
 };
