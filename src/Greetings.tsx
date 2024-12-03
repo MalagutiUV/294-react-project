@@ -11,11 +11,14 @@ function Greetings(props: GreetingsProps) {
   const detailHref = `/people/${id}`;
 
   return (
-    <div className='p-4 flex flex-col gap-2'>
+    <div className='p-4 grid grid-cols-3 gap-2 '>
+      <p>{id}</p>
       <h2>Greetings {name}</h2>
-      <NavLink className='button-primary' to={detailHref}>
-        Details
-      </NavLink>
+      <div>
+        <NavLink className='button-primary' to={detailHref}>
+          Details
+        </NavLink>
+      </div>
     </div>
   );
 }

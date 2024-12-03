@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Greetings from "../../Greetings";
+import { LoaderPinwheel } from "lucide-react";
 import Navbar from "../../components/layout/Navbar";
 import { Person } from "../../models/Person";
 
@@ -17,15 +18,18 @@ const waitSeconds = () => {
 const PeopleOverviewPage: React.FC<IPeopleOverviewPageProps> = () => {
   // get people data from api
   const [people, setPeople] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       const response = await fetch(
         "http://react-vid-app.vercel.app/api/people"
       );
       const data = await response.json();
       await waitSeconds();
       setPeople(data);
+      setIsLoading(false);
     };
     fetchData();
   }, []);
@@ -34,12 +38,19 @@ const PeopleOverviewPage: React.FC<IPeopleOverviewPageProps> = () => {
     <>
       <Navbar />
       <h1>Here is the People List</h1>
-      {people.map((entry: Person, index: number) => (
-        <div>
-          <Greetings person={entry} />
-          <hr />
-        </div>
-      ))}
+
+      {isLoading === true ? (
+        <LoaderPinwheel className='text-blue-700 animate-spin w-12 h-12' />
+      ) : (
+        <>
+          {people.map((entry: Person, index: number) => (
+            <div>
+              <Greetings person={entry} />
+              <hr />
+            </div>
+          ))}
+        </>
+      )}
     </>
   );
 };

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Navbar from "../../components/layout/Navbar";
 import { findPerson } from "../../models/PersonDb";
 import { useParams } from "react-router";
@@ -9,20 +11,25 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
 
   const { peopleId } = params;
 
-  // find person with id from url
-  const person = findPerson(Number(peopleId));
+  const [person, setPerson] = useState(undefined);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `http://react-vid-app.vercel.app/api/people/${peopleId}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setPerson(data);
+    };
+    fetchData();
+  }, []);
 
   if (person === undefined) {
     return <h1>Sorry, Person not found</h1>;
   }
 
   const { id, name, age, position, heightInMiliMeters } = person;
-
-  // const id = person.id;
-  // const name = person.name;
-  // const age = person.age;
-  // const position = person.position;
-  // const heightInMiliMeters = person.heightInMiliMeters;
 
   return (
     <>
