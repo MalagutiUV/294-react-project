@@ -11,14 +11,27 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
 
   const person = findPerson(Number(peopleId));
 
+  if (person === undefined) {
+    return <h1>Sorry, Person not found</h1>;
+  }
+
+  const { id, name, age, position, heightInMiliMeters } = person;
+
+  // const id = person.id;
+  // const name = person.name;
+  // const age = person.age;
+  // const position = person.position;
+  // const heightInMiliMeters = person.heightInMiliMeters;
+
   return (
     <>
       <Navbar />
-      <h1>People Detail Page for Person {person?.name}</h1>
+      <h1>People Detail Page for Person {name}</h1>
       <div>
-        <span>Age: {person?.age}</span>
-        <span>Position: {person?.position}</span>
-        <span>Height: {person?.heightInMiliMeters}</span>
+        <span>ID: {id}</span>
+        <span>Age: {age}</span>
+        <span>Position: {position}</span>
+        <span>Height: {heightInMiliMeters}</span>
       </div>
     </>
   );
