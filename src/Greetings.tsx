@@ -15,7 +15,7 @@ function Greetings(props: GreetingsProps) {
       <p>{id}</p>
       <h2>Greetings {name}</h2>
       <div>
-        <NavLink className='button-primary' to={detailHref}>
+        <NavLink className='button-secondary' to={detailHref}>
           Details
         </NavLink>
       </div>

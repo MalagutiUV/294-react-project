@@ -1,7 +1,8 @@
+import { LoaderPinwheel, UserPlus } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import Greetings from "../../Greetings";
-import { LoaderPinwheel } from "lucide-react";
+import { NavLink } from "react-router";
 import Navbar from "../../components/layout/Navbar";
 import { Person } from "../../models/Person";
 
@@ -38,7 +39,9 @@ const PeopleOverviewPage: React.FC<IPeopleOverviewPageProps> = () => {
     <>
       <Navbar />
       <h1>Here is the People List</h1>
-
+      <NavLink className='button-primary' to={"/people/create"}>
+        Create new Person
+      </NavLink>
       {isLoading === true ? (
         <LoaderPinwheel className='text-blue-700 animate-spin w-12 h-12' />
       ) : (
