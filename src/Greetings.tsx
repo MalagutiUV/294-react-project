@@ -13,7 +13,7 @@ function Greetings(props: GreetingsProps) {
   return (
     <div className='p-4 grid grid-cols-3 gap-2 '>
       <p>{id}</p>
-      <h2>Greetings {name}</h2>
+      <h2>{name}</h2>
       <div>
         <NavLink className='button-secondary' to={detailHref}>
           Details
