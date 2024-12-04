@@ -16,7 +16,8 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://react-vid-app.vercel.app/api/people/${peopleId}`
+        `http://react-vid-app.vercel.app/api/people/${peopleId}`,
+        { method: "GET" }
       );
       const data = await response.json();
       console.log(data);

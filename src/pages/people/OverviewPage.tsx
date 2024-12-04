@@ -25,7 +25,8 @@ const PeopleOverviewPage: React.FC<IPeopleOverviewPageProps> = () => {
     const fetchData = async () => {
       setIsLoading(true);
       const response = await fetch(
-        "http://react-vid-app.vercel.app/api/people"
+        "http://react-vid-app.vercel.app/api/people",
+        { method: "GET" }
       );
       const data = await response.json();
       await waitSeconds();
