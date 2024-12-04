@@ -29,7 +29,7 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
     return <h1>Sorry, Person not found</h1>;
   }
 
-  const { id, name, age, position, heightInMiliMeters } = person;
+  const { id, name, age, position, heightinmilimeters } = person;
 
   return (
     <>
@@ -39,7 +39,7 @@ const PeopleDetailPage: React.FC<IPeopleDetailPageProps> = (props) => {
         <span>ID: {id}</span>
         <span>Age: {age}</span>
         <span>Position: {position}</span>
-        <span>Height: {heightInMiliMeters}</span>
+        <span>Height: {heightinmilimeters}</span>
       </div>
     </>
   );

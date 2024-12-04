@@ -3,6 +3,6 @@ export interface Room {
   description: string;
   price: number;
   location: string;
-  totalBeds: number;
-  totalRooms: number;
+  totalbeds: number;
+  totalrooms: number;
 }

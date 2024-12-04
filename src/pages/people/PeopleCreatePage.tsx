@@ -1,9 +1,28 @@
+import { useNavigate } from "react-router";
+
 export interface IPeopleCreatePageProps {}
 
 const PeopleCreatePage: React.FC<IPeopleCreatePageProps> = (props) => {
-  const createPerson = (formData: any) => {
+  let navigate = useNavigate();
+
+  const createPerson = async (formData: any) => {
     console.log("create person");
-    console.log(formData);
+    console.log(JSON.stringify(formData));
+    const response = await fetch("http://react-vid-app.vercel.app/api/people", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    });
+    console.log(response);
+
+    const dataObjectFromResponse = await response.json();
+
+    console.log(dataObjectFromResponse);
+
+    const peopleId = dataObjectFromResponse.peopleId;
+    console.log(peopleId);
+
+    // redirect to people detail page with id returned from server
+    navigate(`/people/${peopleId}`);
   };
 
   return (
@@ -41,10 +60,10 @@ const PeopleCreatePage: React.FC<IPeopleCreatePageProps> = (props) => {
           <input type='text' name='position' placeholder='position' />
         </div>
         <div>
-          <label htmlFor='heightInMiliMeters'>Height in Milimeters</label>
+          <label htmlFor='heightinmilimeters'>Height in Milimeters</label>
           <input
             type='numer'
-            name='heightInMiliMeters'
+            name='heightinmilimeters'
             placeholder='Height in Milimeters'
           />
         </div>

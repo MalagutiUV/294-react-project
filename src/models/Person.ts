@@ -3,5 +3,5 @@ export interface Person {
   name: string;
   age: number;
   position: string;
-  heightInMiliMeters: number;
+  heightinmilimeters: number;
 }
