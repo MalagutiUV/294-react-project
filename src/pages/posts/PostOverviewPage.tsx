@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { Loader2Icon } from "lucide-react";
 import Navbar from "../../components/layout/Navbar";
 import PostItem from "../../components/posts/PostItem";
 import { useNavigate } from "react-router";
@@ -43,9 +44,17 @@ const PostOverviewPage: React.FC<IPostOverviewPageProps> = (props) => {
     <>
       <Navbar />
       <h1>Feed</h1>
-      {posts.map((entry: any) => (
-        <PostItem postItem={entry} />
-      ))}
+      {isLoading ? (
+        <>
+          <Loader2Icon className='w-6 h-6 animate-pulse' />
+        </>
+      ) : (
+        <>
+          {posts.map((entry: any) => (
+            <PostItem postItem={entry} />
+          ))}
+        </>
+      )}
     </>
   );
 };
