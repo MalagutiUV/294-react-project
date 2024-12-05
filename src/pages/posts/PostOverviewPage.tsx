@@ -43,9 +43,15 @@ const PostOverviewPage: React.FC<IPostOverviewPageProps> = (props) => {
     <>
       <Navbar />
       <h1>Feed</h1>
-      {posts.map((entry: any) => (
-        <PostItem postItem={entry} />
-      ))}
+      {isLoading ? (
+        <>Loading...</>
+      ) : (
+        <>
+          {posts.map((entry: any) => (
+            <PostItem postItem={entry} />
+          ))}
+        </>
+      )}
     </>
   );
 };
